@@ -205,9 +205,7 @@ Deploy to $ARGUMENTS:            # │ (instructions for Claude)
 
 ---
 
-# Frontmatter Fields
-
-| Field | Default | Description |
+| Frontmatter Field | Default | Description |
 |---|---|---|
 | `name` | Directory name | Slash command name (`/name`) |
 | `description` | First paragraph | What it does; when to use it |
