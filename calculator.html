@@ -100,6 +100,10 @@
         .btn-negate {
             background: #2d8f4e;
         }
+
+        .btn-square {
+            background: #1a8a8a;
+        }
     </style>
 </head>
 <body>
@@ -132,6 +136,7 @@
             <button class="btn-negate" onclick="negate()">±</button>
             <button onclick="appendValue('0')">0</button>
             <button onclick="appendValue('.')">.</button>
+            <button class="btn-square" onclick="square()">x²</button>
             <button class="btn-equals" onclick="calculate()">=</button>
         </div>
     </div>
@@ -229,6 +234,26 @@
             }
         }
 
+        function square() {
+            if (!expression) return;
+            try {
+                const sanitized = expression.replace(/[^0-9+\-*/.%]/g, '');
+                const value = Function('"use strict"; return (' + sanitized + ')')();
+                if (!isFinite(value)) {
+                    resultEl.textContent = 'Error';
+                    return;
+                }
+                const squared = value * value;
+                const formatted = parseFloat(squared.toFixed(10)).toString();
+                expressionEl.textContent = '(' + expression.replace(/\*/g, '×').replace(/\//g, '÷') + ')² =';
+                resultEl.textContent = formatted;
+                expression = formatted;
+                justCalculated = true;
+            } catch {
+                resultEl.textContent = 'Error';
+            }
+        }
+
         function deleteLast() {
             expression = expression.slice(0, -1);
             updateDisplay();
@@ -246,6 +271,7 @@
             else if (e.key === 'Backspace') deleteLast();
             else if (e.key === 'Escape') clearAll();
             else if (e.key === 'F9') negate();
+            else if (e.key === 'F2') { e.preventDefault(); square(); }
         });
     </script>
 </body>

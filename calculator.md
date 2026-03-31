@@ -14,6 +14,7 @@ Open `calculator.html` in any modern web browser. No build tools or dependencies
 - **Decimal support**: prevents duplicate dots in a single number
 - **Chained operations**: continue calculating from the previous result
 - **Negate (±)**: toggles the current number between positive and negative
+- **Square (x²)**: squares the current value or evaluated expression
 - **Keyboard input**: use your keyboard as an alternative to clicking buttons
 
 ## Keyboard Shortcuts
@@ -27,3 +28,4 @@ Open `calculator.html` in any modern web browser. No build tools or dependencies
 | `Backspace` | Delete last character |
 | `Escape` | Clear all |
 | `F9` | Negate (±) |
+| `F2` | Square (x²) |
