@@ -187,16 +187,18 @@ EOF
 # Two Parts: Frontmatter + Body
 
 ```markdown
----                              # ┐
-name: deploy                     # │ YAML Frontmatter
+---
+
+name: deploy                     # ┐ YAML Frontmatter
 description: Deploy to env       # │ (configuration)
 argument-hint: [environment]     # │
 disable-model-invocation: true   # │
 allowed-tools: Bash, Read        # ┘
+
 ---
 
-# Deploy Workflow              # ┐
-                                 # │ Markdown Body
+# Deploy Workflow
+                                 # ┐ Markdown Body
 Deploy to $ARGUMENTS:            # │ (instructions for Claude)
 1. Run tests                     # │
 2. Build the app                 # │
