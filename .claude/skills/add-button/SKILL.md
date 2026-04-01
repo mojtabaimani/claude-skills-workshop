@@ -1,5 +1,5 @@
 ---
-name: calc-button
+name: add-button
 description: Add a new button to the calculator app with custom function and styling
 ---
 
